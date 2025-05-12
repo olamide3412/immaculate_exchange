@@ -1,11 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @import 'tailwindcss';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-primary: #6600CC;
+    --color-secondary-100: #f6f2fa;
+    --color-secondary-200: #b079e8;
+    --color-secondary-300: #864ac2;
+    --color-secondary-400: #6d30ab;
+    --color-secondary-500: #6700cd;
+    --color-secondary-600: #450b80;
+    --color-secondary-700: #32065e;
+    --color-table: #cfd1cd;
+
+    --font-sans: "Figtree", sans-serif;
+    --font-hanken-grotesk: "Hanken Grotesk", sans-serif;
+
+    --font-size-2xs: 0.625rem;
+
+    --animation-border: border-spin 3s linear infinite;
+
+    --keyframes-border-spin: {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    };
+
+    --background-size-200: 200% 200%;
 }
+@layer utilities {
+    .bg-primary {
+      background-color: var(--color-primary);
+    }
+
+    .text-2xs {
+      font-size: var(--font-size-2xs);
+    }
+
+    .animate-border {
+      animation: var(--animation-border);
+    }
+    @keyframes border-spin {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+}
+
+@layer components {
+    .btn-primary {
+      @apply px-6 py-2 rounded-lg text-white bg-primary hover:bg-secondary-700 disabled:bg-slate-400 disabled:cursor-wait;
+    }
+    .btn-primary-red {
+        @apply px-6 py-2 rounded-lg text-white bg-red-500 hover:bg-red-700 disabled:bg-slate-400 disabled:cursor-wait;
+    }
+    .rounded-element{
+        @apply rounded-lg px-2 py-1 text-sm text-white bg-secondary-500 hover:bg-secondary-700
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"], textarea {
+        @apply block w-full rounded-md border border-gray-300 px-4 py-3  text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm bg-white;
+    }
+    label {
+        @apply block text-sm font-medium leading-6 text-slate-900 first-letter:capitalize;
+    }
+
+    .primary-btn {
+        @apply flex w-full justify-center rounded-md bg-secondary-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary-700 disabled:bg-slate-400 disabled:cursor-wait;
+    }
+    .text-link {
+        @apply font-semibold text-secondary-500 hover:text-secondary-700;
+    }
+    .title {
+        @apply my-6 text-center text-3xl font-bold leading-9 text-slate-900;
+    }
+    .title-little {
+        @apply my-6 text-center text-xl font-bold leading-9 text-slate-900;
+    }
+    .error {
+        @apply text-xs text-red-500 mt-1;
+    }
+    .avatar {
+        @apply w-8 h-8 rounded-full overflow-hidden object-center object-cover;
+    }
+    .round-btn {
+        @apply w-8 h-8 overflow-auto rounded-full bg-slate-100 focus:outline-none focus:ring-1 focus:ring-slate-100 focus:ring-offset-2 focus:ring-offset-slate-800;
+    }
+}
+
+@layer base {
+    /* Default (light) theme */
+    html[data-theme="light"] {
+        --bg: #ffffff;
+        --text: #000000;
+    }
+
+    /* Dark theme */
+    html[data-theme="dark"] {
+        --bg: #111827;
+        --text: #f9fafb;
+    }
+
+    /* Optional: System theme (you can auto-detect later) */
+    html[data-theme="system"] {
+        --bg: #ffffff;
+        --text: #000000;
+    }
+
+    /* Apply variables globally */
+    html {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: "Poppins", sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none; /* To remove  ms-edge  password toggle */
+}
+

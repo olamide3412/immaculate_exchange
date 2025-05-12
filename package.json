@@ -6,11 +6,26 @@
         "dev": "vite"
     },
     "devDependencies": {
-        "@tailwindcss/vite": "^4.0.0",
+        "@tailwindcss/vite": "^4.1.5",
         "axios": "^1.8.2",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
-        "tailwindcss": "^4.0.0",
+        "tailwindcss": "^4.1.5",
         "vite": "^6.2.4"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-brands-svg-icons": "^6.7.2",
+        "@fortawesome/free-regular-svg-icons": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@fortawesome/vue-fontawesome": "^3.0.8",
+        "@inertiajs/vue3": "^2.0.8",
+        "@pinia/nuxt": "^0.11.0",
+        "@vitejs/plugin-vue": "^5.2.3",
+        "aos": "^2.3.4",
+        "dayjs": "^1.11.13",
+        "lodash": "^4.17.21",
+        "pinia": "^3.0.2",
+        "vue-toastification": "^2.0.0-rc.5"
     }
 }

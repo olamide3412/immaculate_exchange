@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\RoleEnums;
+use App\Enums\StatusEnums;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +16,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('phone_number')->unique()->nullable();
+            $table->string('user_name')->unique()->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->enum('role', array_map(fn($role) => $role->value, RoleEnums::cases()))->default(RoleEnums::Administrator->value);
+            $table->enum('status', array_map(fn($status) => $status->value, StatusEnums::cases()))->default(StatusEnums::Enable->value);
             $table->timestamps();
         });
 
