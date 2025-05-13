@@ -17,6 +17,7 @@ Route::inertia('/login','Auth/Login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::post('/whatsapp-webhook',[WhatsAppController::class,'handleIncomingMessage']);
+Route::post('/waapi-webhook',[WhatsAppController::class,'handleWaApiMsg']);
 
 Route::middleware(['auth', 'admin'])->group(function (){
 

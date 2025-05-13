@@ -51,7 +51,7 @@ const services = [
 </script>
 
 <template>
-    <section class="py-16 bg-primary" data-aos="fade-up">
+    <section class="py-16 bg-primary">
       <div class="max-w-4xl mx-auto text-center px-4 md:px-1">
         <h5 class="text-lg font-medium text-white" data-aos="fade-left">Our Services</h5>
         <h2 class="text-3xl font-bold text-gray-100 mt-2" data-aos="fade-right" data-aos-delay="100">

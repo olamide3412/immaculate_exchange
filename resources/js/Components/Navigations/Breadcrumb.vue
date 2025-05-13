@@ -11,8 +11,8 @@ defineProps({
 });
 </script>
 <template>
-    <section class="relative bg-gradient-to-r from-secondary-500 to-secondary-500 dark:from-gray-900 dark:to-gray-900 text-white py-20 px-4">
-      <div class="absolute inset-0 bg-black/50"></div>
+    <section class="relative bg-gradient-to-r from-secondary-500 to-secondary-500 dark:from-dark dark:to-dark dark:bg-dark text-white py-20 px-4">
+      <div class="absolute inset-0 bg-dark/50"></div>
       <div class="relative z-10 max-w-6xl mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ title }}</h1>
         <nav class="flex justify-center items-center space-x-2 text-sm md:text-base">

@@ -2,9 +2,13 @@
 import Navbar from '@/Components/Navigations/Navbar.vue'
 import WhatsAppButton from '@/Components/WhatsAppButton.vue'
 import ThemeToggle from '@/Components/ThemeToggle.vue';
+import { onMounted } from 'vue';
+import { AOS } from 'aos';
+
+
 </script>
 <template>
-    <div class=" bg-secondary-100 text-black dark:bg-gray-900 dark:text-white">
+    <div class=" bg-light text-black dark:bg-dark dark:text-white">
         <Navbar />
         <main class="pt-16" v-if="!$page.props.auth.user"> <!-- Padding to offset fixed navbar -->
             <slot />

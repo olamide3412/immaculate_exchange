@@ -11,7 +11,7 @@ const toggle = () => isOpen.value = !isOpen.value
 
 
 <template>
-    <nav class="fixed top-0 left-0 w-full z-50 shadow bg-secondary-100 text-black dark:bg-gray-900 dark:text-white">
+    <nav class="fixed top-0 left-0 w-full z-50 shadow bg-light text-black dark:bg-dark dark:text-white">
       <div class="container  flex items-center justify-between p-2">
         <div>
             <Link href="/" class=" flex items-center space-x-1">
@@ -51,7 +51,7 @@ const toggle = () => isOpen.value = !isOpen.value
 
       <!-- Mobile Menu -->
       <transition name="slide">
-        <div v-if="isOpen" class="md:hidden  shadow-md p-4">
+        <div v-if="isOpen" class="md:hidden shadow-md p-4">
           <ul class="space-y-4 text-center">
             <li><Link href="/" @click="toggle">Home</Link></li>
             <li><Link href="/about" @click="toggle">About</Link></li>

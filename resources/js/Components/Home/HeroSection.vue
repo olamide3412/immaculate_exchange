@@ -4,14 +4,14 @@ import HeroImage from '../../../images/logo.png';
 </script>
 
 <template>
-    <section class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-16 py-10">
+    <section class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-16 py-5">
 
       <!-- Text Content -->
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
         data-aos-delay="0"
-        class="md:w-1/2 space-y-6"
+        class="md:w-1/2 space-y-6 "
       >
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
@@ -30,6 +30,7 @@ import HeroImage from '../../../images/logo.png';
         data-aos="fade-in"
         data-aos-delay="1000"
         data-aos-duration="1000"
+        data-aos-anchor=".other-element"
         class="md:w-1/2 flex justify-center mb-10 md:mb-0"
       >
         <img :src="HeroImage" alt="Hero" class="max-w-sm w-full">

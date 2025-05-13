@@ -8,6 +8,12 @@ use Twilio\Rest\Client;
 
 class WhatsAppController extends Controller
 {
+
+
+    public function handleWaApiMsg(Request $request){
+
+    }
+
     public function handleIncomingMessage(Request $request) {
         // Log incoming request (for debugging)
         Log::info('Incoming WhatsApp Message:', $request->all());
@@ -53,4 +59,6 @@ class WhatsAppController extends Controller
             ]
         );
     }
+
+
 }
