@@ -45,7 +45,16 @@ const services = [
     },
     title: "Other Cryptocurrency",
     description: "Exchange any cryptocurrency to cash in a click.",
-    link: whatsappLink('I want to trade other cryptocurrency, what is your current rate for .....?'),
+    link: whatsappLink('Hi, I want to trade other cryptocurrency, what is your current rate for .....?'),
+  },
+  {
+    icon: {
+        type: 'fas',
+        name: 'gift',
+    },
+    title: "Gift Card",
+    description: "Sell gift cards easily and instantly at competitive rates.",
+    link: whatsappLink('Hi, I want to trade gift card. What is your current rate?'),
   },
 ];
 </script>
@@ -61,15 +70,15 @@ const services = [
           We deal in Bitcoin, USDT, Ethereum, and other cryptocurrencies exchange.
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10" data-aos="fade-up" data-aos-delay="300">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10" data-aos="fade-up" data-aos-delay="300">
           <div
             v-for="(service, index) in services"
             :key="index"
-            class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow"
+            class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow transition-transform duration-500 hover:scale-105 hover:shadow-xl"
             data-aos="zoom-in"
             :data-aos-delay="300 + index * 100"
           >
-            <div class="text-4xl text-primary mb-4">
+            <div class="text-4xl text-primary mb-4 ">
               <font-awesome-icon :icon="[service.icon.type, service.icon.name]" />
             </div>
             <h3 class="text-xl font-semibold mb-2">{{ service.title }}</h3>

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section class=" py-20">
+    <section class=" py-10">
       <div class="container mx-auto px-4">
         <div data-aos="fade-up">
           <h2 class="text-4xl font-bold text-center mb-4">Welcome to Immaculate Exchange</h2>

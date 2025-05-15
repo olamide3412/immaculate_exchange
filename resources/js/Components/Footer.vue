@@ -3,7 +3,7 @@ import Logo from '../../images/logo.png'
 </script>
 
 <template>
-    <section class="" data-aos="fade-up">
+    <section>
       <!-- Background overlay -->
       <div class="bg-black opacity-10"></div>
 
@@ -69,7 +69,7 @@ import Logo from '../../images/logo.png'
         <hr class="my-8 border-t border-gray-300" />
 
         <!-- Footer -->
-        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-200" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-200" >
           <div>
             Immaculate Exchange © {{ new Date().getFullYear() }}. All Rights Reserved | Designed by
             <a href="https://www.linkedin.com/in/ola3412/" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">SKYWAY TECH</a>

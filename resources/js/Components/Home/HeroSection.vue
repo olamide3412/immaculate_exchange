@@ -1,6 +1,7 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 import HeroImage from '../../../images/logo.png';
+import ImmaculateWorker from '../../../images/immaculate-worker.png'
 </script>
 
 <template>
@@ -20,8 +21,22 @@ import HeroImage from '../../../images/logo.png';
           Look no further! At Immaculate Exchange, we give the best rate ever.
         </p>
         <div class="flex space-x-4">
-          <Link href="/trade" class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">Trade Now</Link>
-          <Link href="/about" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">About Us</Link>
+            <Link
+                data-aos="fade-in"
+                data-aos-delay="500"
+                data-aos-duration="500"
+                href="/trade"
+                class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">
+                Trade Now
+            </Link>
+            <Link
+                data-aos="fade-in"
+                data-aos-delay="500"
+                data-aos-duration="500"
+                href="/about"
+                class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
+                About Us
+            </Link>
         </div>
       </div>
 
@@ -33,9 +48,24 @@ import HeroImage from '../../../images/logo.png';
         data-aos-anchor=".other-element"
         class="md:w-1/2 flex justify-center mb-10 md:mb-0"
       >
-        <img :src="HeroImage" alt="Hero" class="max-w-sm w-full">
+        <img :src="ImmaculateWorker" alt="Hero" class="max-w-sm w-full custom-bounce">
       </div>
 
     </section>
   </template>
 
+
+<style scoped>
+@keyframes small-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.custom-bounce {
+  animation: small-bounce 1s infinite;
+}
+</style>

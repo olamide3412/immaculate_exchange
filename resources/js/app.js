@@ -16,20 +16,22 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faUserSecret, faUser,faSearch, faCircle, faFileCirclePlus, faGaugeHigh, faEye,
     faPhone, faCertificate, faXmark, faWifi, faClock, faShield, faThumbsUp, faShieldAlt,
-    faCoins, faUsd, faAngleRight, faMapMarkerAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons'
+    faCoins, faUsd, faAngleRight, faMapMarkerAlt, faEnvelope, faGift} from '@fortawesome/free-solid-svg-icons'
 import {faBitcoin, faEthereum, faFacebook, faInstagram, faTwitter, faXTwitter, faWhatsapp  } from '@fortawesome/free-brands-svg-icons';
 import { createPinia } from 'pinia';
 import { useThemeStore } from './Stores/themeStore';
 /* add icons to the library */
 library.add( faUserSecret, faUser, faSearch, faCircle, faFileCirclePlus, faGaugeHigh, faEye, faPhone,
     faCertificate, faXmark, faWifi, faClock, faShield, faThumbsUp, faShieldAlt, faCoins, faBitcoin, faEthereum, faUsd,
-    faFacebook, faInstagram, faTwitter, faXTwitter, faAngleRight, faMapMarkerAlt, faEnvelope, faWhatsapp );
+    faFacebook, faInstagram, faTwitter, faXTwitter, faAngleRight, faMapMarkerAlt, faEnvelope, faWhatsapp, faGift );
 
 
 AOS.init({
     duration: 1000,
     once: true,
 });
+
+
 
 const pinia = createPinia();
 
