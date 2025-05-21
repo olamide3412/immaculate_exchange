@@ -9,21 +9,8 @@ import 'vue-toastification/dist/index.css';
 import { formatDate } from './Utils/dateFormat';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-/* import the fontawesome core */
-import { library } from '@fortawesome/fontawesome-svg-core'
-/* import font awesome icon component */
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-/* import specific icons */
-import { faUserSecret, faUser,faSearch, faCircle, faFileCirclePlus, faGaugeHigh, faEye,
-    faPhone, faCertificate, faXmark, faWifi, faClock, faShield, faThumbsUp, faShieldAlt,
-    faCoins, faUsd, faAngleRight, faMapMarkerAlt, faEnvelope, faGift} from '@fortawesome/free-solid-svg-icons'
-import {faBitcoin, faEthereum, faFacebook, faInstagram, faTwitter, faXTwitter, faWhatsapp  } from '@fortawesome/free-brands-svg-icons';
 import { createPinia } from 'pinia';
 import { useThemeStore } from './Stores/themeStore';
-/* add icons to the library */
-library.add( faUserSecret, faUser, faSearch, faCircle, faFileCirclePlus, faGaugeHigh, faEye, faPhone,
-    faCertificate, faXmark, faWifi, faClock, faShield, faThumbsUp, faShieldAlt, faCoins, faBitcoin, faEthereum, faUsd,
-    faFacebook, faInstagram, faTwitter, faXTwitter, faAngleRight, faMapMarkerAlt, faEnvelope, faWhatsapp, faGift );
 
 
 AOS.init({
@@ -56,10 +43,15 @@ createInertiaApp({
         app.config.globalProperties.$formatDate = formatDate;
 
         app.component('Head', Head)
-        .component('Link', Link)
-        .component('font-awesome-icon', FontAwesomeIcon);
+        .component('Link', Link);
 
-        app.mount(el)
+        // ✅ Dynamically import FontAwesome to split the chunk
+        import('./fontawesome').then(({ FontAwesomeIcon }) => {
+            app.component('font-awesome-icon', FontAwesomeIcon)
+             app.mount(el);
+        });
+
+       // app.mount(el)
     },
     progress: {
         delay: 250,

@@ -1,7 +1,5 @@
 <script setup>
 import TextInput from '@/Components/Forms/TextInput.vue';
-import SelectInput from '@/Components/Forms/SelectInput.vue';
-import TagInput from '@/Components/Forms/TagInput.vue'
 import { useForm } from '@inertiajs/vue3';
 import { useToast } from 'vue-toastification';
 
