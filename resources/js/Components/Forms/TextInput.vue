@@ -22,15 +22,14 @@ defineProps({
     required:{
         type: Boolean,
         default: false
-    }
+    },
 })
 </script>
 <template>
     <div class="mb-2">
         <label> {{label}} <span v-if="required" class=" text-red-500">*</span> </label>
         <input :type="type" v-model="model" :class="{'!ring-red-500' : message}"
-                :placeholder="placeholder??label" :required="required" :name="name"
-                />
+                :placeholder="placeholder??label" :required="required" :name="name"/>
         <small class="error" v-if="message">{{ message }}</small>
     </div>
 </template>

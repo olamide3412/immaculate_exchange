@@ -12,7 +12,7 @@
           <h3 class="text-2xl text-center mb-6">Most Trusted Digital Asset Dealer</h3>
         </div>
         <div data-aos="fade-up" data-aos-delay="200" class="text-center mb-12 max-w-2xl mx-auto">
-          <p>We are the most reliable, fastest, and trusted cryptocurrency exchanger. We exchange Bitcoin, USDT, Ethereum, etc.</p>
+          <p>We are the most reliable, fastest, and trusted cryptocurrency exchanger. We exchange Bitcoin, USDT, Ethereum, Gift card etc.</p>
         </div>
 
         <!-- Three Feature Boxes -->

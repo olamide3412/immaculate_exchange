@@ -16,6 +16,7 @@ import { AOS } from 'aos';
         </main>
         <!--for class p-4 lg:ml-64 mt-16 -->
         <main v-else class=" p-4 mt-16">
+             <ThemeToggle/>
             <slot />
         </main>
     </div>

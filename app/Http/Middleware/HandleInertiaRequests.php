@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\ExchangeRate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -48,9 +49,10 @@ class HandleInertiaRequests extends Middleware
                 'phone' => '+2348151702840',
                 'phone_whatsapp' => '2348151702840',
                 'phone_formatted' => '+234 815170 2840',
-                'email' => 'support@immaculate.com',
+                'email' => 'support@immaculateexchange.com',
                 'location' => 'Delta State, Nigeria'
-            ]
+            ],
+            'exchangeRates' => ExchangeRate::where('is_visible', true)->orderBy('sort_order', 'asc')->limit(15)->get(),
         ];
     }
 }

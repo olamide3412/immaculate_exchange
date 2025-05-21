@@ -2,7 +2,12 @@
 
 namespace App\Providers;
 
+use App\Enums\MatchTypeEnums;
+use App\Enums\RoleEnums;
+use App\Enums\StatusEnums;
+use App\Helpers\EnumHelper;
 use Illuminate\Support\ServiceProvider;
+use Inertia\Inertia;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +24,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Inertia::share([
+            'enums' => fn () => EnumHelper::options([
+                'matchTypes' => MatchTypeEnums::class,
+                'roles' => RoleEnums::class,
+                'statuses' => StatusEnums::class,
+                // Add more enums here as needed
+            ])
+        ]);
     }
 }

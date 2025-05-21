@@ -1,8 +1,9 @@
 <script setup>
+import { usePage } from '@inertiajs/vue3'
 import { ref } from 'vue'
 
 const activeTab = ref('naira')
-
+const exchangeRates = usePage().props.exchangeRates;
 const nairaRates = [
   { amount: 'Above $1000', rate: 'NGN 1713/$' },
   { amount: '$100+ to $999', rate: 'NGN 1709/$' },
@@ -14,7 +15,7 @@ const nairaRates = [
       <div class="container mx-auto px-4">
         <!-- Section Title -->
         <div class="text-center mb-12">
-          <h3 class="text-3xl font-bold text-gray-800">Exchange rate for all Cryptocurrencies</h3>
+          <h3 class="text-3xl font-bold text-gray-800">Our Exchange rate</h3>
           <div class="w-20 h-1 bg-primary mx-auto my-4"></div>
           <p class="text-gray-600 max-w-lg mx-auto">
             The table below shows our competitive exchange rates.
@@ -22,7 +23,7 @@ const nairaRates = [
         </div>
 
         <!-- Tabs -->
-        <div class="flex justify-center mb-8">
+        <div class="flex justify-center mb-8 space-x-2">
           <button
             @click="activeTab = 'naira'"
             :class="[
@@ -31,6 +32,15 @@ const nairaRates = [
             ]"
           >
             Naira
+          </button>
+          <button
+            @click="activeTab = 'dollar'"
+            :class="[
+              ' hidden px-6 py-2 font-medium text-sm rounded-t-lg transition-all',
+              activeTab === 'dollar' ? 'bg-primary text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            ]"
+          >
+            Dollar
           </button>
         </div>
 
@@ -45,9 +55,9 @@ const nairaRates = [
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
-                <tr v-for="(rate, index) in nairaRates" :key="index">
-                  <td class="px-6 py-4 text-sm text-gray-800">{{ rate.amount }}</td>
-                  <td class="px-6 py-4 text-sm text-gray-800">{{ rate.rate }}</td>
+                <tr v-for="(exchangeRate, index) in exchangeRates" :key="index">
+                  <td class="px-6 py-4 text-sm text-gray-800">{{ exchangeRate.amount }}</td>
+                  <td class="px-6 py-4 text-sm text-gray-800">{{ exchangeRate.rate }}</td>
                 </tr>
               </tbody>
             </table>

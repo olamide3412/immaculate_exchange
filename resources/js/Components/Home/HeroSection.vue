@@ -2,6 +2,16 @@
 import { Link } from '@inertiajs/vue3';
 import HeroImage from '../../../images/logo.png';
 import ImmaculateWorker from '../../../images/immaculate-worker.png'
+import { usePage } from '@inertiajs/vue3';
+import { generateWhatappLink } from '../../Utils/whatsappLinkGen';
+import { computed } from 'vue';
+
+
+const support = usePage().props.support;
+
+const tradeNowLink = computed(() => {
+    return generateWhatappLink(support.phone_whatsapp, 'Hi, I want to trade, what are your current rates?');
+})
 </script>
 
 <template>
@@ -25,7 +35,7 @@ import ImmaculateWorker from '../../../images/immaculate-worker.png'
                 data-aos="fade-in"
                 data-aos-delay="500"
                 data-aos-duration="500"
-                href="/trade"
+                :href="tradeNowLink"
                 class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">
                 Trade Now
             </Link>
@@ -33,7 +43,7 @@ import ImmaculateWorker from '../../../images/immaculate-worker.png'
                 data-aos="fade-in"
                 data-aos-delay="500"
                 data-aos-duration="500"
-                href="/about"
+                :href="route('about')"
                 class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
                 About Us
             </Link>

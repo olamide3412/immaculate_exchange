@@ -25,7 +25,7 @@ import Logo from '../../images/logo.png'
               <a href="#" target="_blank" aria-label="Facebook" class="text-white rounded-full py-3 px-4 bg-secondary-500 hover:bg-secondary-700 ">
                 <font-awesome-icon :icon="['fab', 'facebook']" />
               </a>
-              <a href="#" target="_blank" aria-label="Instagram" class="text-white rounded-full py-3 px-4 bg-secondary-500 hover:bg-secondary-700 ">
+              <a href="https://www.instagram.com/immaculateexchangeng?igsh=eW1vYjhzdHAwaHd6" target="_blank" aria-label="Instagram" class="text-white rounded-full py-3 px-4 bg-secondary-500 hover:bg-secondary-700 ">
                 <font-awesome-icon :icon="['fab', 'instagram']" />
               </a>
               <a href="#" target="_blank" aria-label="Twitter" class="text-white rounded-full py-3 px-4 bg-secondary-500 hover:bg-secondary-700 ">

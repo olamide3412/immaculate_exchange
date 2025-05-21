@@ -6,6 +6,7 @@ import AboutHero from '@/Components/About/AboutHero.vue'
 
 </script>
 <template>
+    <Head :title=" ` | ${$page.component}` "/>
     <Breadcrumb title="About Us" name="About Us"/>
     <AboutHero/>
     <WhyChooseUsSection/>

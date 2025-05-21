@@ -37,7 +37,7 @@ const handleLogin = () => {
     <div class="min-h-screen  flex items-center justify-center px-4 my-6">
       <!-- Login Card -->
       <div
-        class="w-full max-w-md bg-white rounded-lg shadow-lg p-8 space-y-6"
+        class="w-full max-w-md bg-white dark:bg-slate-900 rounded-lg shadow-lg p-8 space-y-6"
         data-aos="zoom-out"
         data-aos-duration="600"
       >
@@ -48,8 +48,8 @@ const handleLogin = () => {
             alt="Logo"
             class="h-12 mx-auto mb-4"
           />
-          <h2 class="text-2xl font-bold text-gray-800">Login to Your Account</h2>
-          <p class="text-sm text-gray-500 mt-2">Welcome back! Please login to continue.</p>
+          <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Login to Your Account</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-200 mt-2">Welcome back! Please login to continue.</p>
         </div>
 
         <!-- Form -->
@@ -69,7 +69,7 @@ const handleLogin = () => {
                 class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
                 v-model="form.remember"
               />
-              <span class="ml-2 text-sm text-gray-600">Remember me</span>
+              <span class="ml-2 text-sm text-gray-600 dark:text-gray-200">Remember me</span>
             </label>
             <a href="#" class="hidden text-sm text-primary hover:text-primary-dark">Forgot password?</a>
           </div>

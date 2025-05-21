@@ -6,6 +6,7 @@ import NoticeSection from '@/Components/Rate/NoticeSection.vue'
 
 </script>
 <template>
+    <Head :title=" ` | ${$page.component}` "/>
     <Breadcrumb title="Exchange Rate" name="Rate"/>
     <ExchangeRate/>
     <NoticeSection/>

@@ -19,6 +19,11 @@ defineProps({
     type: Boolean,
     default: false,
   },
+
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
@@ -31,8 +36,10 @@ defineProps({
     <select
       v-model="model"
       :required="required"
-      class="block w-full rounded-md border-0 p-2 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 bg-white sm:text-sm"
+      :disabled="disabled"
+      class="block w-full rounded-md border-0 px-4 py-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-500 focus:ring-2 focus:ring-inset focus:ring-blue-500 bg-white sm:text-sm"
       :class="{ '!ring-red-500': message }"
+
     >
       <option value="">Select {{ name }}</option>
       <option

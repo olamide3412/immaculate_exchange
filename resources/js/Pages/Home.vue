@@ -11,6 +11,7 @@ import ThemeToggle from '@/Components/ThemeToggle.vue';
 </script>
 
 <template>
+    <Head :title=" ` | ${$page.component}` "/>
     <div >
         <ThemeToggle/>
         <HeroSection/>

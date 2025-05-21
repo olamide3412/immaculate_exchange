@@ -5,6 +5,7 @@ import FaqSection from '@/Components/Faq/FaqSection.vue';
 
 </script>
 <template>
+    <Head :title=" ` | ${$page.component}` "/>
     <Breadcrumb title="Frequently Asked Questions" name="FAQ"/>
     <FaqSection/>
     <Footer/>

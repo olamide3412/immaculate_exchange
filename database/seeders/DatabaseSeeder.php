@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Enums\RoleEnums;
 use App\Models\User;
+use App\Models\WhatsAppResponse;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,12 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         //User::factory(3)->create();
+        WhatsAppResponse::factory(25)->create();
 
-        User::factory()->create([
-            'name' => 'Supper Admin',
-            'email' => 'superadmin@gmail.com',
-            'role' => RoleEnums::SuperAdministrator->value,
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Supper Admin',
+        //     'email' => 'superadmin@gmail.com',
+        //     'role' => RoleEnums::SuperAdministrator->value,
+        // ]);
     }
 }
