@@ -24,7 +24,7 @@ const tradeNowLink = computed(() => {
         data-aos-delay="0"
         class="md:w-1/2 space-y-6 "
       >
-        <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
           ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
         </h1>
         <p class="text-lg text-gray-600 dark:text-gray-300">
@@ -56,9 +56,9 @@ const tradeNowLink = computed(() => {
         data-aos-delay="1000"
         data-aos-duration="1000"
         data-aos-anchor=".other-element"
-        class="md:w-1/2 flex justify-center mb-5 md:mb-0"
+        class="md:w-1/2 flex justify-center mb-10 md:mb-0"
       >
-        <img :src="ImmaculateWorker" alt="Hero" class="full md:max-w-md lg:max-w-lg custom-bounce object-contain">
+        <img :src="ImmaculateWorker" alt="Hero" class="max-w-sm w-full custom-bounce">
       </div>
 
     </section>
