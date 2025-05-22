@@ -27,7 +27,11 @@ const tradeNowLink = computed(() => {
             <img :src="ImmaculateWorker" alt="Hero" class="w-full custom-bounce">
         </div>
         <!-- Text Below -->
-        <div class="space-y-4">
+        <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="0"
+            class="space-y-4">
             <h1 class="text-2xl font-bold text-gray-900 dark:text-gray-100 text-center">
                 ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
             </h1>
@@ -36,17 +40,11 @@ const tradeNowLink = computed(() => {
             </p>
             <div class="flex flex-col space-y-3 px-5 text-center">
                 <Link
-                    data-aos="fade"
-                    data-aos-delay="500"
-                    data-aos-duration="1000"
                     :href="tradeNowLink"
                     class="bg-primary text-white px-6 py-3  rounded-full shadow hover:bg-primary-dark transition">
                     Trade Now
                 </Link>
                 <Link
-                    data-aos="fade"
-                    data-aos-delay="700"
-                    data-aos-duration="1000"
                     :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
                     About Us
                 </Link>
