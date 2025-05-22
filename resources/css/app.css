@@ -111,7 +111,7 @@
 
     /* Dark theme */
     html[data-theme="dark"] {
-        --bg: #111827;
+        --bg: #0a0a0a;
         --text: #f9fafb;
     }
 
