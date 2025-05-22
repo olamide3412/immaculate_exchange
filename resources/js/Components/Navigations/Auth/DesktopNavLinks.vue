@@ -4,7 +4,7 @@ const liClasses = 'block px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gra
 </script>
 <template>
     <!-- Admin Dropdown Menu -->
-    <li class="relative group" data-aos="fade-down" data-aos-delay="200">
+    <li class="relative group" >
         <button class=" px-0 py-0  transition-all">
             User Menu
         </button>

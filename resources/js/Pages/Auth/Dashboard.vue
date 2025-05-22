@@ -20,7 +20,7 @@ defineProps({
         <!-- Users Section -->
         <div class="container mx-auto p-6">
             <h3 class="text-2xl font-bold mb-3">Statistics</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
                 <CountCard title="Users" :count="counts.users.toString()" :icon="IconUtils.userIcon()" />
                 <CountCard title="Administrator" :count="counts.admins.toString()" :icon="IconUtils.adminIcon()" />
                 <CountCard title="Super Administrator" :count="counts.superAdmins.toString()" :icon="IconUtils.superAdminIcon()" />

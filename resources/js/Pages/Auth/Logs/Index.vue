@@ -42,7 +42,7 @@ watch(params,
 <template>
     <div class="">
 
-        <div class="md:flex md:justify-end md:items-center md:space-x-2 mb-4">
+        <div class="md:flex md:justify-end md:items-center md:space-x-2 mb-4 p-4">
             <div class=" w-full md:w-1/4  ">
                 <TextInput type="search" name="Search" v-model="params.search" :required="false" label="Search"  />
             </div>

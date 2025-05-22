@@ -14,7 +14,7 @@ const handleChaneActiveTab = (tabName = 'listings') => {
 </script>
 <template>
   <Head :title=" ` | ${$page.component}` "/>
-  <div class="container-xl lg:container m-auto  p-6">
+  <div class="container-xl lg:container m-auto  p-10">
     <!-- Tab Buttons -->
     <div class="flex space-x-2 mb-4">
       <button

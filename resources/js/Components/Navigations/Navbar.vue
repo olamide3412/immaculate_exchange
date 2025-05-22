@@ -3,7 +3,9 @@ import { ref } from 'vue'
 import Logo from '../../../images/logo.png'
 import NavLink from '@/Components/Navigations/NavLink.vue'
 import DesktopNavLinks from '@/Components/Navigations/Auth/DesktopNavLinks.vue'
-import ThemeToggle from '@/Components/ThemeToggle.vue';
+import MobileNavLinks from '@/Components/Navigations/Auth/MobileNavLinks .vue'
+
+
 
 const isOpen = ref(false)
 const toggle = () => isOpen.value = !isOpen.value
@@ -53,9 +55,12 @@ const toggle = () => isOpen.value = !isOpen.value
       <transition name="slide">
         <div v-if="isOpen" class="md:hidden shadow-md p-4">
           <ul class="space-y-4 text-center">
-            <li><Link href="/" @click="toggle">Home</Link></li>
-            <li><Link href="/about" @click="toggle">About</Link></li>
-            <li><Link href="/contact" @click="toggle">Contact</Link></li>
+            <li><Link :href="route('home')" @click="toggle">Home</Link></li>
+            <li><Link :href="route('about')" @click="toggle">About</Link></li>
+            <li><Link :href="route('rate')" @click="toggle">Rate</Link></li>
+            <li><Link :href="route('faq')" @click="toggle">FAQ</Link></li>
+              <!-- Authenticated user mobile nav links -->
+             <MobileNavLinks v-if="$page.props.auth.user" @close="toggle" />
           </ul>
         </div>
       </transition>
