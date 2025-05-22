@@ -19,8 +19,12 @@ const tradeNowLink = computed(() => {
     <!-- ✅ Mobile View -->
     <section class="block md:hidden px-4 py-6">
         <!-- Image First -->
-        <div class="mb-6">
-        <img :src="ImmaculateWorker" alt="Hero" class="w-full custom-bounce">
+        <div
+            data-aos="zoom-out"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+            class="mb-6">
+            <img :src="ImmaculateWorker" alt="Hero" class="w-full custom-bounce">
         </div>
         <!-- Text Below -->
         <div class="space-y-4">
@@ -31,10 +35,19 @@ const tradeNowLink = computed(() => {
                 Look no further! At Immaculate Exchange, we give the best rate ever.
             </p>
             <div class="flex flex-col space-y-3 px-5 text-center">
-                <Link :href="tradeNowLink" class="bg-primary text-white px-6 py-3  rounded-full shadow hover:bg-primary-dark transition">
+                <Link
+                    data-aos="fade"
+                    data-aos-delay="500"
+                    data-aos-duration="1000"
+                    :href="tradeNowLink"
+                    class="bg-primary text-white px-6 py-3  rounded-full shadow hover:bg-primary-dark transition">
                     Trade Now
                 </Link>
-                <Link :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
+                <Link
+                    data-aos="fade"
+                    data-aos-delay="700"
+                    data-aos-duration="1000"
+                    :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
                     About Us
                 </Link>
             </div>
@@ -42,9 +55,13 @@ const tradeNowLink = computed(() => {
     </section>
 
      <!-- ✅ Desktop View -->
-  <section class="hidden md:flex min-h-screen items-center justify-between px-16 py-10">
+  <section class="hidden md:flex min-h-screen items-center justify-between px-16 py-0">
     <!-- Text Left -->
-    <div class="w-1/2 space-y-6">
+    <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="0"
+        class="w-1/2 space-y-6 other-element">
       <h1 class="text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
         ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
       </h1>
@@ -52,16 +69,30 @@ const tradeNowLink = computed(() => {
         Look no further! At Immaculate Exchange, we give the best rate ever.
       </p>
       <div class="flex space-x-4">
-        <Link :href="tradeNowLink" class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">
-          Trade Now
+        <Link
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="500"
+            :href="tradeNowLink"
+            class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">
+            Trade Now
         </Link>
-        <Link :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
+        <Link
+            data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="500"
+            :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
           About Us
         </Link>
       </div>
     </div>
      <!-- Image Right -->
-    <div class="w-1/2 flex justify-center">
+    <div
+        data-aos="zoom-out"
+        data-aos-delay="500"
+        data-aos-duration="1000"
+        data-aos-anchor=".other-element"
+        class="w-1/2 flex justify-center">
       <img :src="ImmaculateWorker" alt="Hero" class="w-full max-w-md custom-bounce">
     </div>
   </section>

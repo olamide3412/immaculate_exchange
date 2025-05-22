@@ -6,7 +6,7 @@
     <section class=" py-10">
       <div class="container mx-auto px-4">
         <div data-aos="fade-up">
-          <h2 class="text-4xl font-bold text-center mb-4">Welcome to Immaculate Exchange</h2>
+          <h2 class="text-3xl font-bold text-center mb-4">Welcome to Immaculate Exchange</h2>
         </div>
         <div data-aos="fade-up" data-aos-delay="100">
           <h3 class="text-2xl text-center mb-6">Most Trusted Digital Asset Dealer</h3>

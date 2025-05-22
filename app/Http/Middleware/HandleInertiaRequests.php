@@ -47,7 +47,7 @@ class HandleInertiaRequests extends Middleware
             ],
             'support' => [
                 'phone' => '+2348151702840',
-                'phone_whatsapp' => '2348151702840',
+                'phone_whatsapp' => '14155238886', //'2348151702840',
                 'phone_formatted' => '+234 815170 2840',
                 'email' => 'support@immaculateexchange.com',
                 'location' => 'Delta State, Nigeria'
