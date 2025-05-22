@@ -15,7 +15,7 @@ const tradeNowLink = computed(() => {
 </script>
 
 <template>
-    <section class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-4 sm:px-6 md:px-16 py-6 md:py-10">
+    <section class="min-h-screen flex flex-col-reverse md:flex-row items-center justify-between px-4 md:px-16 py-5">
 
       <!-- Text Content -->
       <div
@@ -58,7 +58,7 @@ const tradeNowLink = computed(() => {
         data-aos-anchor=".other-element"
         class="md:w-1/2 flex justify-center mb-10 md:mb-0"
       >
-        <img :src="ImmaculateWorker" alt="Hero" class="fw-full md:max-w-md lg:max-w-lg max-h-[400px] object-contain custom-bounce">
+        <img :src="ImmaculateWorker" alt="Hero" class="full md:max-w-md lg:max-w-lg custom-bounce object-contain">
       </div>
 
     </section>
