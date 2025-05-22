@@ -58,7 +58,7 @@ const tradeNowLink = computed(() => {
         data-aos-anchor=".other-element"
         class="md:w-1/2 flex justify-center mb-10 md:mb-0"
       >
-        <img :src="ImmaculateWorker" alt="Hero" class="max-w-sm w-full custom-bounce">
+        <img :src="ImmaculateWorker" alt="Hero" class="full md:max-w-md lg:max-w-lg custom-bounce object-contain">
       </div>
 
     </section>

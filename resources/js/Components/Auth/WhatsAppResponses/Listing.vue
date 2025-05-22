@@ -35,12 +35,12 @@ const toggleFullResponse = () => {
 
 const truncatedResponse = computed(() => {
     let response = props.whatsAppResponse.response;
-    if (response && response.length >= 100) {
+    if (response && response.length >= 125) {
         isResponseMuch.value = true;
     }
 
     if (isResponseMuch.value && !showFullResponse.value){
-        response = response.substring(0, 100) + '...';
+        response = response.substring(0, 125) + '...';
     }
     return response;
 });
@@ -67,7 +67,7 @@ const truncatedResponse = computed(() => {
                     <button
                         v-if="isResponseMuch"
                         @click="toggleFullResponse"
-                        class="text-secondary-500 hover:text-secondary-600 mb-5 underline">
+                        class="text-secondary-500 hover:text-secondary-600 dark:text-secondary-200 dark:hover:text-secondary-300 mb-5 underline">
                             {{ showFullResponse ? 'Show Less' : 'Show More' }}
                     </button>
                 </p>

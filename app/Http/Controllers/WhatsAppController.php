@@ -40,7 +40,7 @@ class WhatsAppController extends Controller
 
         //$validatedData['triggers'] = json_encode($validatedData['triggers']);
         $validatedData['triggers'] = json_encode(array_map('strtolower', $validatedData['triggers']));
-        //dd($validatedData);
+        dd($validatedData);
         $whatsAppResponse = WhatsAppResponse::create($validatedData);
         log_new("Whatsapp response created name: " .$whatsAppResponse->name);
         return back()->with('message','New whatsapp chat response created');
@@ -62,6 +62,7 @@ class WhatsAppController extends Controller
             'match_type' => ['required', new Enum(MatchTypeEnums::class)]
         ]);
 
+        $validatedData['triggers'] = json_encode(array_map('strtolower', $validatedData['triggers']));
         $whatsAppResponse->update($validatedData);
          log_new("Whatsapp response updated name: " .$whatsAppResponse->name);
         return back()->with('message','Whatsapp chat response update');

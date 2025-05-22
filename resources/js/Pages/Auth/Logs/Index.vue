@@ -40,7 +40,7 @@ watch(params,
 
 </script>
 <template>
-    <div class="">
+    <div class="p-4">
 
         <div class="md:flex md:justify-end md:items-center md:space-x-2 mb-4 p-4">
             <div class=" w-full md:w-1/4  ">

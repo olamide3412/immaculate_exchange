@@ -20,7 +20,7 @@ const form = useForm({
 
 const submit = () => {
     //router.post('register',form)
-    form.post(route('whatsappResponse.store'),{
+    form.post(route('whatsAppResponse.store'),{
         onError: () => {
             toast.error('Validation error');
         },

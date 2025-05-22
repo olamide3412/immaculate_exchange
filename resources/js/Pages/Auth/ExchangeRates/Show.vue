@@ -62,7 +62,7 @@ const deleteExchangeRate = () => {
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12 p-4">
     <!-- Show admin Details -->
     <div v-show="!isEditing">
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg p-6">
+      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md rounded-lg p-6">
         <div class="flex items-center">
 
           <div class="ml-4">

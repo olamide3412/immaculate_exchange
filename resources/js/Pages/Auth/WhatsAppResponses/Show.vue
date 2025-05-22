@@ -56,13 +56,32 @@ const deleteWhatsAppResponse = () => {
     }
 }
 
+const showFullResponse = ref(false);
+const isResponseMuch = ref(false);
+
+const toggleFullResponse = () => {
+  showFullResponse.value = !showFullResponse.value;
+}
+
+const truncatedResponse = computed(() => {
+    let response = props.whatsAppResponse.response;
+    if (response && response.length > 255) {
+        isResponseMuch.value = true;
+    }
+
+    if (isResponseMuch.value && !showFullResponse.value){
+        response = response.substring(0, 255) + '...';
+    }
+    return response;
+});
+
 
 </script>
 <template>
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12 p-4">
     <!-- Show admin Details -->
     <div v-show="!isEditing">
-      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-lg p-6">
+      <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-md rounded-lg p-6">
         <div class="flex items-center">
 
           <div class="ml-4">
@@ -72,9 +91,18 @@ const deleteWhatsAppResponse = () => {
               </h1>
             </div>
 
-            <p class="text-gray-600 dark:text-gray-100">Triggers:</p>
+            <p class="text-gray-600 dark:text-gray-100"><strong>Triggers:</strong></p>
             <TriggerTags :triggers="whatsAppResponse.triggers"/>
-            <p class="text-gray-600 dark:text-gray-100">Response: {{ whatsAppResponse.response }}</p>
+            <p class="text-gray-600 dark:text-gray-100">
+                <strong>Response: </strong>
+                {{ truncatedResponse }}
+                <button
+                    v-if="isResponseMuch"
+                    @click="toggleFullResponse"
+                    class="text-secondary-500 hover:text-secondary-600 dark:text-secondary-200 dark:hover:text-secondary-300 mb-5 underline">
+                        {{ showFullResponse ? 'Show Less' : 'Show More' }}
+                </button>
+            </p>
 
           </div>
         </div>
@@ -129,7 +157,7 @@ const deleteWhatsAppResponse = () => {
                     <label> Response <span class=" text-red-500">*</span> </label>
                     <textarea
                         v-model="form.response"  name="response" class="border rounded w-full py-2 px-3"
-                        rows="4" placeholder="What response would like to send if trigger is recieved?" required>
+                        rows="8" placeholder="What response would like to send if trigger is recieved?" required>
                     </textarea>
                     <div v-if="form.errors.response" class="text-red-500 text-xs mt-1">{{ form.errors.response }}</div>
                 </div>

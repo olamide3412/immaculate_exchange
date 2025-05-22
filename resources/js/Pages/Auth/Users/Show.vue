@@ -84,7 +84,7 @@ const resetPassword = (route_name) => {
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12 p-4">
     <!-- Show User Details -->
     <div v-if="activeTab == 'show'">
-      <div class="bg-white dark:bg-gray-800  overflow-hidden shadow-md sm:rounded-lg p-6">
+      <div class="bg-white dark:bg-gray-800  overflow-hidden shadow-md rounded-lg p-6">
         <div class="flex items-center">
           <div class="ml-4">
             <div class="flex flex-col sm:flex-row sm:items-start md:items-center space-y-2 sm:space-y-0 sm:space-x-1">

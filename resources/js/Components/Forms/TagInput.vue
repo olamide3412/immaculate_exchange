@@ -68,7 +68,7 @@ function removeTag(index) {
       @keydown.enter="addTag"
       @blur="addTag"
       :placeholder="placeholder"
-      class=" lowercase"
+      class="lowercase"
     />
     <small class="error" v-if="message">{{ message }}</small>
   </div>
