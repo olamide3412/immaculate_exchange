@@ -12,7 +12,7 @@
 
         <meta property="og:title" content="Immaculate Exchange - Crypto & Gift Card Trading" />
         <meta property="og:description" content="Trade Bitcoin, Ethereum, and top gift cards securely and instantly with Immaculate Exchange. Trusted, fast, and reliable crypto exchange." />
-        <meta property="og:image" content="{{ Vite::asset('resources/images/logo-with-name.png') }}" />
+        <meta property="og:image" content="{{ Vite::asset('resources/images/logo-full.png') }}" />
         <meta property="og:url" content="https://immaculateexchange.com" />
 
         <script type="application/ld+json">

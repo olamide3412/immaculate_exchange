@@ -2,6 +2,7 @@
 import { Link } from '@inertiajs/vue3';
 import HeroImage from '../../../images/logo.png';
 import ImmaculateWorker from '../../../images/immaculate-worker.png'
+import LogoFull from '../../../images/logo-full.png'
 import { usePage } from '@inertiajs/vue3';
 import { generateWhatappLink } from '../../Utils/whatsappLinkGen';
 import { computed } from 'vue';
