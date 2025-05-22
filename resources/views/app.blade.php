@@ -3,6 +3,50 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="Immaculate Exchange is a trusted crypto and gift card trading platform, offering reliable and secure trading services. Empowering users with innovative financial solutions to grow their wealth. Join us today!">
+        <meta name="keywords" content="immaculate exchange, crypto trading, gift card trading, immaculate crypto, bitcoin trading, ethereum, secure trading platform, trade crypto, trade gift card, fast crypto trading, secure exchange, Immaculate Exchange Nigeria, online trading, crypto Nigeria, gift card Nigeria">
+        <link rel="canonical" href="https://immaculateexchange.com">
+        <meta name="robots" content="index, follow">
+
+
+        <meta property="og:title" content="Immaculate Exchange - Crypto & Gift Card Trading" />
+        <meta property="og:description" content="Trade Bitcoin, Ethereum, and top gift cards securely and instantly with Immaculate Exchange. Trusted, fast, and reliable crypto exchange." />
+        <meta property="og:image" content="{{ Vite::asset('resources/images/logo-with-name.png') }}" />
+        <meta property="og:url" content="https://immaculateexchange.com" />
+
+        <script type="application/ld+json">
+         {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Immaculate Exchange",
+            "description": "Immaculate Exchange is a trusted crypto and gift card trading platform. Trade      Bitcoin, Ethereum, and major gift cards securely and instantly.",
+            "url": "https://immaculateexchange.com",
+            "logo": "{{ Vite::asset('resources/images/logo.png') }}",
+            "sameAs": [
+                "https://www.facebook.com/yourpage",
+                "https://www.instagram.com/immaculateexchangeng?igsh=eW1vYjhzdHAwaHd6",
+                "https://wa.me/2348151702840"
+            ],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Street 34 Abraka",
+                "addressLocality": "Ethiope East",
+                "addressRegion": "Delta State",
+                "postalCode": "330105",
+                "addressCountry": "NG"
+            },
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+234 8151 702 840",
+                "contactType": "Customer Service",
+                "areaServed": "NG",
+                "availableLanguage": "English"
+            }
+         }
+        </script>
+
+
         <link rel="icon" type="image/png" href="{{ Vite::asset('resources/images/logo.png') }}">
 
         <!-- Fonts -->
