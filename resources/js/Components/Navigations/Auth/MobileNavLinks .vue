@@ -40,7 +40,7 @@ const liClasses = 'block px-2 py-0 text-gray-700 hover:bg-gray-100 dark:text-gra
       :href="route('logout')"
       as="button"
       method="post"
-      class="block px-4 py-2 text-red-500 hover:bg-gray-100 w-full text-left dark:hover:bg-gray-700"
+      class="block px-4 py-2 text-red-500 hover:bg-gray-100 w-full dark:hover:bg-gray-700"
       @click="$emit('close')"
     >
       Logout
