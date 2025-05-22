@@ -56,7 +56,7 @@ const tradeNowLink = computed(() => {
         data-aos-delay="1000"
         data-aos-duration="1000"
         data-aos-anchor=".other-element"
-        class="md:w-1/2 flex justify-center mb-10 md:mb-0"
+        class="md:w-1/2 flex justify-center mb-5 md:mb-0"
       >
         <img :src="ImmaculateWorker" alt="Hero" class="full md:max-w-md lg:max-w-lg custom-bounce object-contain">
       </div>
