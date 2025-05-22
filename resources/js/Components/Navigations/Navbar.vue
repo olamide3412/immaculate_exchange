@@ -54,7 +54,7 @@ const toggle = () => isOpen.value = !isOpen.value
       <!-- Mobile Menu -->
       <transition name="slide">
         <div v-if="isOpen" class="md:hidden shadow-md p-4">
-          <ul class="space-y-4 text-center">
+          <ul class="space-y-3 text-center">
             <li><Link :href="route('home')" @click="toggle">Home</Link></li>
             <li><Link :href="route('about')" @click="toggle">About</Link></li>
             <li><Link :href="route('rate')" @click="toggle">Rate</Link></li>

@@ -1,5 +1,7 @@
 <script setup>
-const liClasses = 'block px-4 py-0 text-gray-700 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-700';
+
+defineEmits(['close']);
+const liClasses = 'block px-2 py-0 text-gray-700 hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-700';
 </script>
 
 <template>
