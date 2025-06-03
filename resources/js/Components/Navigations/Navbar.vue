@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import Logo from '../../../images/logo.png'
 import NavLink from '@/Components/Navigations/NavLink.vue'
 import DesktopNavLinks from '@/Components/Navigations/Auth/DesktopNavLinks.vue'
-import MobileNavLinks from '@/Components/Navigations/Auth/MobileNavLinks .vue'
+import MobileNavLinks from '@/Components/Navigations/Auth/MobileNavLinks.vue'
 
 
 
