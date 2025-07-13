@@ -17,7 +17,7 @@ import Logo from '../../images/logo.png'
 
             <!-- Description -->
             <p class="mb-6 text-sm">
-              Immaculate Exchange is a cryptocurrency exchange company that enables customers to convert their Bitcoin, USDT, Ethereum, and other Cryptocurrencies to cash at a good and competitive rate.
+              Bold Immaculate Ventures (Exchange) is a cryptocurrency exchange company that enables customers to convert their Bitcoin, USDT, Ethereum, and other Cryptocurrencies to cash at a good and competitive rate.
             </p>
 
             <!-- Social Icons -->
@@ -71,7 +71,7 @@ import Logo from '../../images/logo.png'
         <!-- Footer -->
         <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-200" >
           <div>
-            Immaculate Exchange © {{ new Date().getFullYear() }}. All Rights Reserved | Designed by
+            Bold Immaculate Ventures © {{ new Date().getFullYear() }}. All Rights Reserved | Designed by
             <a href="https://www.linkedin.com/in/ola3412/" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">SKYNET DIGITAL HUB</a>
           </div>
           <div class="flex space-x-6 mt-4 md:mt-0">

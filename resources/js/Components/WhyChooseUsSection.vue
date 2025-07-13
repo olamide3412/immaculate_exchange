@@ -14,7 +14,7 @@ import CryptoTrader from '../../images/Crypto-trader.png';
           </h2>
           <p class="text-gray-700 dark:text-gray-200">
             With over $1 million in cryptocurrency trades successfully executed,
-            Immaculate Exchange stands as a trusted trader in digital asset transactions.
+            Bold Immaculate Ventures stands as a trusted trader in digital asset transactions.
           </p>
         </div>
 

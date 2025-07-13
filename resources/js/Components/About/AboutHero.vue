@@ -34,7 +34,7 @@
           data-aos-delay="200"
         >
           <h5 class="text-primary font-semibold text-sm uppercase mb-2">
-            Welcome to Immaculate Exchange
+            Welcome to Bold Immaculate Ventures
           </h5>
 
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6 leading-tight">
@@ -43,7 +43,7 @@
 
           <div class="space-y-4 text-gray-600 mb-8">
             <p>
-              At Immaculate Exchange, we are committed to offering the fastest, most trusted, and most reliable cryptocurrency transactions.
+              At Bold Immaculate Ventures (Exchange), we are committed to offering the fastest, most trusted, and most reliable cryptocurrency transactions.
             </p>
             <p>
               We are the most reliable, fastest, and trusted cryptocurrency exchanger. We exchange Bitcoin, USDT, Ethereum, and other cryptocurrencies.
