@@ -92,8 +92,6 @@ class WhatsAppController extends Controller
         return response('OK', 200);
     }
 
-
-
     private function getResponse($message){
 
         $message = strtolower(trim($message));
@@ -134,26 +132,6 @@ class WhatsAppController extends Controller
         //     }
         // }
 
-    }
-    private function getResponseOLD3($message){
-         $message = strtolower(trim($message));
-            // Find matching response
-        $response = WhatsAppResponse::where('is_active', true)
-            ->whereRaw("JSON_CONTAINS(triggers, '\"$message\"')") // Exact match
-            ->orWhere(function ($query) use ($message) {
-                $query->whereJsonContains('triggers', '%' . $message . '%')
-                    ->where('match_type', 'like');
-            })
-            ->first();
-
-
-        if ($response) {
-            $reply = $response->response;
-        } else {
-            $reply = "Sorry, I didn't understand that.";
-        }
-
-        return $reply;
     }
 
     private function sendMessage($to, $body) {
@@ -207,5 +185,79 @@ class WhatsAppController extends Controller
 
         return $faqs[$message] ?? "Sorry, I didn't understand that. Type 'help' for available commands.";
     }
+
+     private function getResponseOLD3($message){
+         $message = strtolower(trim($message));
+            // Find matching response
+        $response = WhatsAppResponse::where('is_active', true)
+            ->whereRaw("JSON_CONTAINS(triggers, '\"$message\"')") // Exact match
+            ->orWhere(function ($query) use ($message) {
+                $query->whereJsonContains('triggers', '%' . $message . '%')
+                    ->where('match_type', 'like');
+            })
+            ->first();
+
+
+        if ($response) {
+            $reply = $response->response;
+        } else {
+            $reply = "Sorry, I didn't understand that.";
+        }
+
+        return $reply;
+    }
+
+    //Using Direct Whatsapp api without twillo
+
+
+    public function receiveWebhook(Request $request)
+    {
+        // Get incoming message
+        $message = $request->input('entry.0.changes.0.value.messages.0.text.body');
+        $from = $request->input('entry.0.changes.0.value.messages.0.from');
+
+        // Simple response based on keyword
+        $response = "Thanks for messaging us!";
+        if (strpos(strtolower($message), 'price') !== false) {
+            $response = "Our prices are affordable. Visit immaculateexchange.com/rate.";
+        } elseif (strpos(strtolower($message), 'hello') !== false) {
+            $response = "Hello! How can we help you today?";
+        }
+
+        // Send reply using WhatsApp Cloud API
+        $this->sendWhatsAppMessage($from, $response);
+
+        return response()->json(['status' => 'message sent']);
+    }
+
+    private function sendWhatsAppMessage($to, $message)
+    {
+        $token = env('WHATSAPP_TEMP_ACCESS_TOKEN'); //'YOUR_TEMPORARY_ACCESS_TOKEN';
+        $phone_number_id = env('WHATSAPP_PHONE_ID') ; //'YOUR_PHONE_NUMBER_ID';
+
+        Http::withToken($token)->post("https://graph.facebook.com/v19.0/$phone_number_id/messages", [
+            'messaging_product' => 'whatsapp',
+            'to' => $to,
+            'type' => 'text',
+            'text' => [
+                'body' => $message,
+            ],
+        ]);
+    }
+
+    // Optional: webhook verification (needed for initial webhook setup)
+    public function verify(Request $request)
+    {
+        $token = "cQxdcljumXdkvibw"; // same token you set in Meta developer console
+        if (
+            $request->hub_mode === 'subscribe' &&
+            $request->hub_verify_token === $token
+        ) {
+            return response($request->hub_challenge);
+        }
+
+        return response('Verification failed', 403);
+    }
+
 
 }

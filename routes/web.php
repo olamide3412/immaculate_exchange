@@ -21,7 +21,12 @@ Route::inertia('/faq','FAQ')->name('faq');
 Route::inertia('/login','Auth/Login')->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/whatsapp-webhook',[WhatsAppController::class,'handleIncomingMessage']);
+Route::post('/twillo-whatsapp-webhook',[WhatsAppController::class,'handleIncomingMessage']); //twillo
+
+Route::get('/whatsapp-webhook', [WhatsAppController::class, 'verify']); // Whatsapp direct api integration
+Route::post('/whatsapp-webhook', [WhatsAppController::class, 'receiveWebhook']);// Whatsapp direct api integration
+
+
 
 Route::middleware(['auth', 'admin'])->group(function (){
 
