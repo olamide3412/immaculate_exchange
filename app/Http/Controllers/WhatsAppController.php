@@ -238,14 +238,16 @@ class WhatsAppController extends Controller
         $token = env('WHATSAPP_TEMP_ACCESS_TOKEN'); //'YOUR_TEMPORARY_ACCESS_TOKEN';
         $phone_number_id = env('WHATSAPP_PHONE_ID') ; //'YOUR_PHONE_NUMBER_ID';
 
-        Http::withToken($token)->post("https://graph.facebook.com/v19.0/$phone_number_id/messages", [
+        Http::withToken($token)->post("https://graph.facebook.com/v22.0/$phone_number_id/messages", [
             'messaging_product' => 'whatsapp',
-            'to' => $to,
+            'to' => $to, // customer's number
             'type' => 'text',
             'text' => [
                 'body' => $message,
             ],
         ]);
+
+
     }
 
     // Optional: webhook verification (needed for initial webhook setup)
