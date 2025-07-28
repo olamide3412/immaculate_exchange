@@ -239,8 +239,8 @@ class WhatsAppController extends Controller
         $phone_number_id = env('WHATSAPP_PHONE_ID') ; //'YOUR_PHONE_NUMBER_ID';
 
 
-        Log::info('WhatsApp token:', $token);
-        Log::info('WhatsApp phone_number_id:', $phone_number_id);
+        Log::info('WhatsApp token:', [$token]);
+        Log::info('WhatsApp phone_number_id:', [$phone_number_id]);
 
         Http::withToken($token)->post("https://graph.facebook.com/v22.0/$phone_number_id/messages", [
             'messaging_product' => 'whatsapp',
