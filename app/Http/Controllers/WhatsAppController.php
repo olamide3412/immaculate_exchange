@@ -6,6 +6,7 @@ use App\Enums\MatchTypeEnums;
 use App\Models\WhatsAppResponse;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rules\Enum;
 use Twilio\Rest\Client;
