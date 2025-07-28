@@ -219,6 +219,8 @@ class WhatsAppController extends Controller
         $message = $request->input('entry.0.changes.0.value.messages.0.text.body');
         $from = $request->input('entry.0.changes.0.value.messages.0.from');
 
+        Log::info('WhatsApp Message and from:',[$message,$from]);
+
         // Simple response based on keyword
         $response = "Thanks for messaging us!";
         if (strpos(strtolower($message), 'price') !== false) {
