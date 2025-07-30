@@ -252,7 +252,7 @@ class WhatsAppController extends Controller
         //     ],
         // ]);
 
-        $url = "https://graph.facebook.com/v18.0/{$phoneNumberId}/messages";
+        $url = "https://graph.facebook.com/v18.0/{$phone_number_id}/messages";
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $token,
