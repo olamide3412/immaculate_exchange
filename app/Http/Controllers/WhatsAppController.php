@@ -241,19 +241,42 @@ class WhatsAppController extends Controller
         $phone_number_id = env('WHATSAPP_PHONE_ID') ; //'YOUR_PHONE_NUMBER_ID';
 
 
-        Log::info('WhatsApp token:', [$token]);
-        Log::info('WhatsApp phone_number_id:', [$phone_number_id]);
+        Log::info('WhatsApp token and phone_number_id:', [$token, $phone_number_id]);
 
-        Http::withToken($token)->post("https://graph.facebook.com/v22.0/$phone_number_id/messages", [
+        // Http::withToken($token)->post("https://graph.facebook.com/v22.0/$phone_number_id/messages", [
+        //     'messaging_product' => 'whatsapp',
+        //     'to' => $to, // customer's number
+        //     'type' => 'text',
+        //     'text' => [
+        //         'body' => $message,
+        //     ],
+        // ]);
+
+        $url = "https://graph.facebook.com/v18.0/{$phoneNumberId}/messages";
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $token,
+            'Content-Type' => 'application/json',
+        ])->post($url, [
             'messaging_product' => 'whatsapp',
-            'to' => $to, // customer's number
+            'recipient_type' => 'individual',
+            'to' => $to,
             'type' => 'text',
             'text' => [
+                'preview_url' => false, // Optional: Set to true for link previews
                 'body' => $message,
             ],
         ]);
 
+        // Log the response for debugging
+        Log::info('WhatsApp API Response:', $response->json());
 
+        if ($response->failed()) {
+            Log::error('WhatsApp API Error:', $response->json());
+            throw new \Exception('Failed to send WhatsApp message: ' . $response->body());
+        }
+
+        return $response->json();
     }
 
     // Optional: webhook verification (needed for initial webhook setup)
