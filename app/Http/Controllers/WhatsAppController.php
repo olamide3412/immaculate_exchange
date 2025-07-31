@@ -260,7 +260,7 @@ class WhatsAppController extends Controller
         ])->post($url, [
             'messaging_product' => 'whatsapp',
             'recipient_type' => 'individual',
-            'to' => '2348032072831', //$to,
+            'to' => '2348024004029', //$to,
             'type' => 'text',
             'text' => [
                 'preview_url' => false, // Optional: Set to true for link previews
