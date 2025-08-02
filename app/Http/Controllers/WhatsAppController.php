@@ -215,13 +215,9 @@ class WhatsAppController extends Controller
     public function receiveWebhook(Request $request)
     {
         try {
-            $request->validate([
-                'entry.0.changes.0.value.messages.0.from' => 'required',
-                'entry.0.changes.0.value.messages.0.id' => 'required'
-            ]);
-
             // Log incoming request (for debugging)
             Log::info('Incoming WhatsApp Message:', $request->all());
+
 
             // Validate webhook structure
             if (!$request->has('entry.0.changes.0.value.messages.0')) {
