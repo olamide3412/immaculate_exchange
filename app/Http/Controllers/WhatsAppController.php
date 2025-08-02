@@ -213,30 +213,198 @@ class WhatsAppController extends Controller
 
     public function receiveWebhook(Request $request)
     {
-        // Log incoming request (for debugging)
-        Log::info('Incoming WhatsApp Message:', $request->all());
-        // Get incoming message
-        $message = $request->input('entry.0.changes.0.value.messages.0.text.body');
-        $from = $request->input('entry.0.changes.0.value.messages.0.from');
+        try {
+            // $request->validate([
+            //     'entry.0.changes.0.value.messages.0.from' => 'required',
+            //     'entry.0.changes.0.value.messages.0.id' => 'required'
+            // ]);
 
-        Log::info('WhatsApp Message and from:',[$message,$from]);
+            // Log incoming request (for debugging)
+            Log::info('Incoming WhatsApp Message:', $request->all());
 
-        // Simple response based on keyword
-        $response = "Thanks for messaging us!";
-        if (strpos(strtolower($message), 'price') !== false) {
-            $response = "Our prices are affordable. Visit immaculateexchange.com/rate.";
-        } elseif (strpos(strtolower($message), 'hello') !== false) {
-            $response = "Hello! How can we help you today?";
+            // Validate webhook structure
+            if (!$request->has('entry.0.changes.0.value.messages.0')) {
+                Log::warning('Invalid webhook format - no message found');
+                return response()->json(['status' => 'ignored - no message']);
+            }
+
+            // Extract message data safely
+            $messageData = $request->input('entry.0.changes.0.value.messages.0');
+            $from = $messageData['from'] ?? null;
+            $messageId = $messageData['id'] ?? null;
+
+            // if (RateLimiter::tooManyAttempts('whatsapp-'.$from, 5)) {
+            //     return response()->json(['status' => 'too many requests'], 429);
+            // }
+            // RateLimiter::hit('whatsapp-'.$from);
+
+            // Check for duplicate messages (store processed message IDs)
+            if (Cache::has('processed_msg_'.$messageId)) {
+                Log::info('Duplicate message ignored', ['message_id' => $messageId]);
+                return response()->json(['status' => 'ignored - duplicate']);
+            }
+
+            // Mark message as processed
+            Cache::put('processed_msg_'.$messageId, true, now()->addHours(24));
+
+            // Handle different message types
+            $message = '';
+            if (isset($messageData['text'])) {
+                $message = $messageData['text']['body'] ?? '';
+            } elseif (isset($messageData['button'])) {
+                $message = $messageData['button']['text'] ?? '';
+            }
+
+            Log::info('Processing WhatsApp message', [
+                'from' => $from,
+                'message' => $message,
+                'message_id' => $messageId
+            ]);
+
+
+
+
+            // Generate response
+            $response = $this->generateResponse($message);
+
+            // Send reply
+            $this->sendWhatsAppMessage($from, $response);
+
+            return response()->json(['status' => 'success']);
+
+
+        } catch (\Exception $e) {
+            Log::error('Webhook processing failed', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            return response()->json(['status' => 'error'], 500);
         }
 
-        // Send reply using WhatsApp Cloud API
-        $this->sendWhatsAppMessage($from, $response);
 
-        return response()->json(['status' => 'message sent']);
+
+
+        //   // Get incoming message
+        // $message = $request->input('entry.0.changes.0.value.messages.0.text.body');
+        // $from = $request->input('entry.0.changes.0.value.messages.0.from');
+
+        // Log::info('WhatsApp Message and from:',[$message,$from]);
+
+        // // Simple response based on keyword
+        // $response = "Thanks for messaging us!";
+        // if (strpos(strtolower($message), 'price') !== false) {
+        //     $response = "Our prices are affordable. Visit immaculateexchange.com/rate.";
+        // } elseif (strpos(strtolower($message), 'hello') !== false) {
+        //     $response = "Hello! How can we help you today?";
+        // }
+
+        // // Send reply using WhatsApp Cloud API
+        // $this->sendWhatsAppMessage($from, $response);
+
+        // return response()->json(['status' => 'message sent']);
+    }
+
+    protected function generateResponse(string $message): string
+    {
+        $message = strtolower(trim($message));
+
+        switch (true) {
+            case str_contains($message, 'price'):
+                return "Our prices are affordable. Visit immaculateexchange.com/rate.";
+            case str_contains($message, 'hello'):
+                return "Hello! How can we help you today?";
+            case str_contains($message, 'hours'):
+                return "We're open 24/7!";
+            default:
+                return "Thanks for messaging us! For quick help, try these keywords: PRICE, HOURS, SUPPORT";
+        }
     }
 
     private function sendWhatsAppMessage($to, $message)
     {
+        // Validate inputs
+        if (empty($to) || !is_numeric($to)) {
+            throw new \InvalidArgumentException('Invalid recipient number');
+        }
+
+        if (empty($message)) {
+            throw new \InvalidArgumentException('Message cannot be empty');
+        }
+
+        $token = env('WHATSAPP_TEMP_ACCESS_TOKEN');
+        $phoneNumberId = env('WHATSAPP_PHONE_ID');
+
+        // Remove any non-numeric characters from phone number
+        $to = preg_replace('/[^0-9]/', '', $to);
+
+        $url = "https://graph.facebook.com/v18.0/{$phoneNumberId}/messages";
+
+        $payload = [
+            'messaging_product' => 'whatsapp',
+            'recipient_type' => 'individual',
+            'to' => $to, // Use the parameter, not hardcoded value
+            'type' => 'text',
+            'text' => [
+                'preview_url' => false,
+                'body' => $message, // Use the parameter
+            ],
+        ];
+
+        Log::info('Sending WhatsApp message', [
+            'to' => $to,
+            'payload' => $payload
+        ]);
+
+        try {
+            $response = Http::withHeaders([
+                'Authorization' => 'Bearer ' . $token,
+                'Content-Type' => 'application/json',
+            ])
+            ->timeout(30)
+            ->post($url, $payload);
+
+            $responseData = $response->json();
+
+            Log::info('WhatsApp API Response', $responseData);
+
+            if ($response->failed()) {
+                Log::error('WhatsApp API Error', [
+                    'status' => $response->status(),
+                    'response' => $responseData,
+                    'payload' => $payload
+                ]);
+                throw new \Exception('WhatsApp API Error: ' . ($responseData['error']['message'] ?? 'Unknown error'));
+            }
+
+            return $responseData;
+
+        } catch (\Exception $e) {
+            Log::error('WhatsApp Message Failed', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        }
+    }
+
+    // Optional: webhook verification (needed for initial webhook setup)
+    public function verify(Request $request)
+    {
+        $token = "cQxdcljumXdkvibw"; // same token you set in Meta developer console
+        if (
+            $request->hub_mode === 'subscribe' &&
+            $request->hub_verify_token === $token
+        ) {
+            return response($request->hub_challenge);
+        }
+
+        return response('Verification failed', 403);
+    }
+
+    private function sendWhatsAppMessageOLD($to, $message)
+    {
+
+
         $token = env('WHATSAPP_TEMP_ACCESS_TOKEN'); //'YOUR_TEMPORARY_ACCESS_TOKEN';
         $phone_number_id = env('WHATSAPP_PHONE_ID') ; //'YOUR_PHONE_NUMBER_ID';
 
@@ -279,19 +447,7 @@ class WhatsAppController extends Controller
         return $response->json();
     }
 
-    // Optional: webhook verification (needed for initial webhook setup)
-    public function verify(Request $request)
-    {
-        $token = "cQxdcljumXdkvibw"; // same token you set in Meta developer console
-        if (
-            $request->hub_mode === 'subscribe' &&
-            $request->hub_verify_token === $token
-        ) {
-            return response($request->hub_challenge);
-        }
 
-        return response('Verification failed', 403);
-    }
 
 
 }
