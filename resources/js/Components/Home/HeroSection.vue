@@ -36,7 +36,7 @@ const tradeNowLink = computed(() => {
                 ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
             </h1>
             <p class="text-base text-gray-600 dark:text-gray-300 text-center">
-                Look no further! At Bold Immaculate Ventures, we give the best rate ever.
+                Look no further! At Immaculate Exchange, we give the best rate ever.
             </p>
             <div class="flex flex-col space-y-3 px-5 text-center">
                 <Link
@@ -64,7 +64,7 @@ const tradeNowLink = computed(() => {
         ARE YOU READY TO TRADE AT THE MOST SWEETEST RATE POSSIBLE?
       </h1>
       <p class="text-lg text-gray-600 dark:text-gray-300">
-        Look no further! At Bold Immaculate Ventures, we give the best rate ever.
+        Look no further! At Immaculate Exchange, we give the best rate ever.
       </p>
       <div class="flex space-x-4">
         <Link
