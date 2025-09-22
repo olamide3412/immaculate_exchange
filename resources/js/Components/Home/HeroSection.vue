@@ -40,11 +40,12 @@ const tradeNowLink = computed(() => {
                 Look no further! At Immaculate Exchange, we give the best rate ever.
             </p>
             <div class="flex flex-col space-y-3 px-5 text-center">
-                <Link
+                <a
                     :href="tradeNowLink"
+                    target="_blank"
                     class="bg-primary text-white px-6 py-3  rounded-full shadow hover:bg-primary-dark transition">
                     Trade Now
-                </Link>
+                 </a>
                 <Link
                     :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
                     About Us
@@ -68,14 +69,15 @@ const tradeNowLink = computed(() => {
         Look no further! At Immaculate Exchange, we give the best rate ever.
       </p>
       <div class="flex space-x-4">
-        <Link
+         <a
             data-aos="fade-up"
             data-aos-delay="500"
             data-aos-duration="500"
             :href="tradeNowLink"
+            target="_blank"
             class="bg-primary text-white px-6 py-3 rounded-lg shadow hover:bg-primary-dark transition">
             Trade Now
-        </Link>
+         </a>
         <Link
             data-aos="fade-up"
             data-aos-delay="500"
