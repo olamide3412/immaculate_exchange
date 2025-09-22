@@ -3,7 +3,7 @@ import Logo from '../../images/logo.png'
 </script>
 
 <template>
-    <section>
+    <section class=" pb-16">
       <!-- Background overlay -->
       <div class="bg-black opacity-10"></div>
 

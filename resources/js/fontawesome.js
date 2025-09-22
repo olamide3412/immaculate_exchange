@@ -7,14 +7,14 @@ import {
   faCoins, faUsd, faAngleRight, faMapMarkerAlt, faEnvelope, faGift
 } from '@fortawesome/free-solid-svg-icons'
 import {
-  faBitcoin, faEthereum, faFacebook, faInstagram, faTwitter, faXTwitter, faWhatsapp
+  faBitcoin, faEthereum, faFacebook, faInstagram, faTwitter, faXTwitter, faWhatsapp, faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(
   faUserSecret, faUser, faSearch, faCircle, faFileCirclePlus, faGaugeHigh, faEye, faPhone,
   faCertificate, faXmark, faWifi, faClock, faShield, faThumbsUp, faShieldAlt, faCoins, faBitcoin,
   faEthereum, faUsd, faFacebook, faInstagram, faTwitter, faXTwitter, faAngleRight, faMapMarkerAlt,
-  faEnvelope, faWhatsapp, faGift
+  faEnvelope, faWhatsapp, faGift, faTelegram
 )
 
 export { FontAwesomeIcon }

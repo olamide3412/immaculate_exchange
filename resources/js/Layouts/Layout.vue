@@ -1,6 +1,7 @@
 <script setup>
 import Navbar from '@/Components/Navigations/Navbar.vue'
 import WhatsAppButton from '@/Components/WhatsAppButton.vue'
+import TelegramButton from '@/Components/TelegramButton.vue';
 import ThemeToggle from '@/Components/ThemeToggle.vue';
 import { onMounted, ref } from 'vue';
 import { AOS } from 'aos';
@@ -15,7 +16,7 @@ const user = usePage().props.auth.user;
         <Navbar />
         <main class="pt-16" > <!-- Padding to offset fixed navbar -->
             <slot />
-            <WhatsAppButton />
+            <TelegramButton />
         </main>
 
     </div>

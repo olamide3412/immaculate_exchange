@@ -5,9 +5,8 @@ import { computed, ref } from 'vue';
 
 const support = usePage().props.support;
 
-const tradeNowLink = computed(() => {
-    return generateWhatappLink(support.phone_whatsapp, 'Hi, I want to trade, what are your current rates?');
-})
+const tradeNowLink = support.telegram_bot;
+
 const whatsappLink = (message) => generateWhatappLink(support.phone_whatsapp, message);
 
 const services = [
@@ -18,7 +17,7 @@ const services = [
     },
     title: "Bitcoin",
     description: "The best platform to buy and sell bitcoin conveniently.",
-    link: whatsappLink('I want to trade Bitcoin, what is your current rate?'),
+    link: tradeNowLink, //whatsappLink('I want to trade Bitcoin, what is your current rate?'),
   },
   {
     icon: {
@@ -27,7 +26,7 @@ const services = [
     },
     title: "Ethereum",
     description: "Exchange Ethereum at competitive market rates.",
-    link: whatsappLink('I want to trade Ethereum, what is your current rate?'),
+    link: tradeNowLink, //whatsappLink('I want to trade Ethereum, what is your current rate?'),
   },
   {
     icon: {
@@ -36,7 +35,7 @@ const services = [
     },
     title: "USDT",
     description: "Buy or sell USDT instantly with peace of mind.",
-    link: whatsappLink('I want to trade USDT, what is your current rate?'),
+    link: tradeNowLink, //whatsappLink('I want to trade USDT, what is your current rate?'),
   },
   {
     icon: {
@@ -45,7 +44,7 @@ const services = [
     },
     title: "Other Cryptocurrency",
     description: "Exchange any cryptocurrency to cash in a click.",
-    link: whatsappLink('Hi, I want to trade other cryptocurrency, what is your current rate?'),
+    link: tradeNowLink,  //whatsappLink('Hi, I want to trade other cryptocurrency, what is your current rate?'),
   },
   {
     icon: {
@@ -54,7 +53,7 @@ const services = [
     },
     title: "Gift Card",
     description: "Sell gift cards easily and instantly at competitive rates.",
-    link: whatsappLink('Hi, I want to trade gift card. What is your current rate?'),
+    link: tradeNowLink,  //whatsappLink('Hi, I want to trade gift card. What is your current rate?'),
   },
 ];
 
