@@ -51,7 +51,7 @@ class HandleInertiaRequests extends Middleware
                 'phone_formatted' => '+234 815170 2840',
                 'email' => 'support@immaculateexchange.com',
                 'location' => 'Delta State, Nigeria',
-                'telegram_bot' => 'https://t.me/immaculate_exchange_bot?start', //=hello
+                'telegram_bot' => 'https://t.me/immaculate_exchange_bot', //?start=hello
             ],
             'exchangeRates' => ExchangeRate::where('is_visible', true)->orderBy('sort_order', 'asc')->limit(15)->get(),
         ];
