@@ -47,11 +47,11 @@ class HandleInertiaRequests extends Middleware
             ],
             'support' => [
                 'phone' => '+2348151702840',
-                'phone_whatsapp' => '14155238886', //'2348151702840',
+                'phone_whatsapp' => '2348151702840', //'2348151702840',
                 'phone_formatted' => '+234 815170 2840',
                 'email' => 'support@immaculateexchange.com',
                 'location' => 'Delta State, Nigeria',
-                'telegram_bot' => 'https://t.me/immaculate_exchange_bot',
+                'telegram_bot' => 'https://t.me/immaculate_exchange_bot?start', //=hello
             ],
             'exchangeRates' => ExchangeRate::where('is_visible', true)->orderBy('sort_order', 'asc')->limit(15)->get(),
         ];

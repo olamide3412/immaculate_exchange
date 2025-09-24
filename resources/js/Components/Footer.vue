@@ -72,7 +72,7 @@ import Logo from '../../images/logo.png'
         <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 dark:text-gray-200" >
           <div>
             Bold Immaculate Ventures © {{ new Date().getFullYear() }}. All Rights Reserved | Designed by
-            <a href="https://www.linkedin.com/in/ola3412/" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">SKYNET DIGITAL HUB</a>
+            <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">EEW TECH X SKYNET DIGITAL HUB</a>
           </div>
           <div class="flex space-x-6 mt-4 md:mt-0">
             <a href="#" class="hover:underline">Privacy Policy</a>
