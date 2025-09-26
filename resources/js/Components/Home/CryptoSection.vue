@@ -7,7 +7,8 @@ import { computed } from 'vue';
 const support = usePage().props.support;
 
 const tradeNowLink = computed(() => {
-    return generateWhatappLink(support.phone_whatsapp, 'I want to trade, what are your current rates?');
+    return support.telegram_bot;
+    //return generateWhatappLink(support.phone_whatsapp, 'I want to trade, what are your current rates?');
 })
 </script>
 <template>
