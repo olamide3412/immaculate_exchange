@@ -75,7 +75,27 @@ class UserController extends Controller
     }
 
     public function destroy(User $user){
-        dd($user);
+        try {
+
+            // Log the action
+            log_new("Deleting $user->name (staff) record");
+
+            // Delete user account
+            $user->delete();
+
+            // Delete staff record
+            $user->delete();
+
+            return redirect()->route('users.index')->with('success', 'User deleted successfully!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Check for foreign key constraint error (SQLSTATE[23000])
+            if ($e->getCode() == '23000') {
+                return redirect()->route('users.index')->with('error', 'User cannot be deleted as they are associated with other records.');
+            }
+
+            // For any other errors, rethrow the exception
+            throw $e;
+        }
     }
 
     public function resetPassword(Request $request, User $user) {

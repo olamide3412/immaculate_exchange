@@ -54,6 +54,8 @@ class HandleInertiaRequests extends Middleware
                 'telegram_bot' => 'https://t.me/immaculate_exchange_bot', //?start=hello
             ],
             'exchangeRates' => ExchangeRate::where('is_visible', true)->orderBy('sort_order', 'asc')->limit(15)->get(),
+            'csrf_token' => csrf_token(),
+            'turnstileSiteKey' => config('services.turnstile.site_key'),
         ];
     }
 }

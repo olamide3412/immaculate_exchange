@@ -55,7 +55,7 @@ const submit = () => {
 
 const deleteUser = () => {
     if (confirm('Are you sure you want to delete this user?')) {
-        form.delete(route('user.destroy', props.user.id), {
+        form.delete(route('users.destroy', props.user.id), {
             onError: () => {
                 toast.error('Error deleting');
             },

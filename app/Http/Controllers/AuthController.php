@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\StatusEnums;
 use App\Models\User;
+use App\Rules\Turnstile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
@@ -36,8 +37,11 @@ class AuthController extends Controller
        // dd($request->toArray());
         $attributes = $request->validate([
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'password' => ['required'],
+            'cf_turnstile_response' => ['required', new Turnstile()],
         ]);
+
+        unset($attributes['cf_turnstile_response']);
 
         $key = 'login:' . Str::lower($attributes['email']) . '|' . $request->ip();
         // Check if the user has too many failed attempts
