@@ -47,8 +47,8 @@ const tradeNowLink = computed(() => {
                     Trade Now
                  </a>
                 <Link
-                    :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
-                    About Us
+                    :href="route('rate')" class="border border-primary text-primary px-6 py-3 rounded-full hover:bg-primary hover:text-white transition dark:bg-gray-300">
+                    Our Rate
                 </Link>
             </div>
         </div>
