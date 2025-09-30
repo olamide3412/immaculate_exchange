@@ -16,7 +16,7 @@
         <meta property="og:url" content="https://immaculateexchange.com" />
 
 
-        <script type="text/javascript" src="https://botsailor.com/script/webchat-link.js?code=1758493589175761"></script>
+
         <script type="application/ld+json">
          {
             "@context": "https://schema.org",

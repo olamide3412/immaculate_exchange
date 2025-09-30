@@ -20,7 +20,7 @@ const tradeNowLink = computed(() => {
     >
       <div class="container mx-auto px-4 text-center">
         <!-- Notice -->
-        <p class="text-lg md:text-xl mb-6">
+        <p class=" hidden text-lg md:text-xl mb-6">
           Kindly note that we do not accept any Crypto payment of amount below $50
         </p>
 

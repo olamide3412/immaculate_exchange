@@ -50,13 +50,13 @@ const nairaRates = [
             <table class="min-w-full divide-y divide-gray-200">
               <thead>
                 <tr>
-                  <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Amount</th>
+                  <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Name</th>
                   <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Rate</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-200">
                 <tr v-for="(exchangeRate, index) in exchangeRates" :key="index">
-                  <td class="px-6 py-4 text-sm text-gray-800">{{ exchangeRate.amount }}</td>
+                  <td class="px-6 py-4 text-sm text-gray-800">{{ exchangeRate.name }}</td>
                   <td class="px-6 py-4 text-sm text-gray-800">{{ exchangeRate.rate }}</td>
                 </tr>
               </tbody>
