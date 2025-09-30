@@ -82,8 +82,8 @@ const tradeNowLink = computed(() => {
             data-aos="fade-up"
             data-aos-delay="500"
             data-aos-duration="500"
-            :href="route('about')" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
-          About Us
+            :href="route('rate')" class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition dark:bg-gray-300">
+           Our Rate
         </Link>
       </div>
     </div>
